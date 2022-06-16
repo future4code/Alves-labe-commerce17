@@ -1,9 +1,17 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import CardProduto from './Components/CardProduto/CardProduto';
+import CamisaNasa from './Imagens/Camisa-Nasa.png'
+import CamisaLaika from './Imagens/Camisa-Laika.png'
+import CamisaApollo from './Imagens/Camisa-Apollo.png'
+import CamisaGalaxia from './Imagens/Camisa-Galaxia.png'
+import CamisaPlaneta from './Imagens/Camisa-Planeta.png'
+import CamisaAstronauta from './Imagens/Camisa-Astronauta.png'
+
+
 
 const GridLayout = styled.div`
-height: 120vh;
+height: 200vh;
 width: 100vw;
 display: grid;
 grid-template-areas:"header header header"
@@ -114,44 +122,49 @@ export default class App extends Component {
     ArrayProdutos: [
       {
         id: "1",
-        fotoProduto: "https://picsum.photos/536/354",
-        nomeProduto: "Produto 1",
-        descrição: "asd",
+        fotoProduto: CamisaNasa,
+        nomeProduto: "Camiseta Nasa",
+        descrição: "Camiseta com o logotipo da Agência Espacial Americana",
         preçoProduto: 100
       },
       {
         id: "2",
-        fotoProduto: "https://picsum.photos/id/237/536/354",
-        nomeProduto: "Produto 2",
-        descrição: "asd",
+        fotoProduto: CamisaLaika,
+        nomeProduto: "Camiseta Laika",
+        descrição: "Homenagem do Astrodev ao primeiro ser vivo no espaço!",
         preçoProduto: 50
       },
       {
         id: "3",
-        fotoProduto: "https://picsum.photos/seed/picsum/536/354",
-        nomeProduto: "Produto 3",
-        descrição: "asd",
+
+        fotoProduto: CamisaGalaxia,
+        nomeProduto: "Camiseta Galáxia",
+        descrição: "Definação da váriavel Galáxia",
         preçoProduto: 70.00
       },
       {
         id: "4",
-        fotoProduto: "https://picsum.photos/id/1084/536/354?grayscale",
-        nomeProduto: "Produto 4",
-        descrição: "asd",
+
+        fotoProduto: CamisaPlaneta,
+        nomeProduto: "Camiseta Planeta",
+        descrição: "Nosso planeta. Nossa casa!",
         preçoProduto: 200.00
       },
       {
         id: "5",
-        fotoProduto: "https://picsum.photos/id/1060/536/354?blur=2",
-        nomeProduto: "Produto 5",
-        descrição: "asd",
+
+        fotoProduto: CamisaAstronauta,
+        nomeProduto: "Camiseta Astronauta",
+        descrição: "Relaxe com o Astrodev",
         preçoProduto: 250.00
       },
       {
         id: "6",
-        fotoProduto: "https://picsum.photos/id/870/536/354?grayscale&blur=2",
-        nomeProduto: "Produto 6",
-        descrição: "asd",
+
+        fotoProduto: CamisaApollo,
+        nomeProduto: "Camiseta Apollo 11",
+        descrição: "Estampa em comemoração a primeira missão lunar",
+
         preçoProduto: 80.00
       }
     ],
