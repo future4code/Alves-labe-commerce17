@@ -15,6 +15,7 @@ flex-direction: column;
 
 p {
   margin-bottom: 0;
+  margin-top: 2px;
 }
 
 h4{
@@ -28,6 +29,7 @@ h3{
 
 h2{
   margin-bottom: 0;
+  margin-top: 2px;
 }
 `
 

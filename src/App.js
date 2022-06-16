@@ -123,48 +123,53 @@ export default class App extends Component {
         id: "2",
         fotoProduto: "https://picsum.photos/id/237/536/354",
         nomeProduto: "Produto 2",
-        descrição: "",
+        descrição: "asd",
         preçoProduto: 50
       },
       {
         id: "3",
         fotoProduto: "https://picsum.photos/seed/picsum/536/354",
         nomeProduto: "Produto 3",
-        descrição: "",
+        descrição: "asd",
         preçoProduto: 70.00
       },
       {
         id: "4",
         fotoProduto: "https://picsum.photos/id/1084/536/354?grayscale",
         nomeProduto: "Produto 4",
-        descrição: "",
+        descrição: "asd",
         preçoProduto: 200.00
       },
       {
         id: "5",
         fotoProduto: "https://picsum.photos/id/1060/536/354?blur=2",
         nomeProduto: "Produto 5",
-        descrição: "",
+        descrição: "asd",
         preçoProduto: 250.00
       },
       {
         id: "6",
         fotoProduto: "https://picsum.photos/id/870/536/354?grayscale&blur=2",
         nomeProduto: "Produto 6",
-        descrição: "",
+        descrição: "asd",
         preçoProduto: 80.00
       }
-    ] 
+    ],
+    inputBuscaPorNome: "",
+  }
+
+  onChangeInputBuscaPorNome = (event) => {
+    this.setState({inputBuscaPorNome: event.target.value})
   }
 
   render() {
 
     const ListaDeProdutos = this.state.ArrayProdutos.map((produtos) => {
       return <CardProduto
-            fotoProduto={produtos.fotoProduto}
-            nomeProduto={produtos.nomeProduto}
-            descrição={produtos.descrição}
-            preçoProduto={produtos.preçoProduto} />
+        fotoProduto={produtos.fotoProduto}
+        nomeProduto={produtos.nomeProduto}
+        descrição={produtos.descrição}
+        preçoProduto={produtos.preçoProduto} />
 
     })
     return (
@@ -184,7 +189,7 @@ export default class App extends Component {
               <input type="number" placeholder="1000" min="1" max="1000" />
             </LabelStyled2>
             <LabelStyled2><H4Valores>Busca por nome: </H4Valores></LabelStyled2>
-            <input type="text" value="Produto"></input>
+            <input type="text" placeholder='Camisa' value={this.state.inputBuscaPorNome} onChange={this.onChangeInputBuscaPorNome}></input>
 
           </div>
         </MenuFiltros>
@@ -214,7 +219,7 @@ export default class App extends Component {
           </DivProdutosLabel>
 
           <DivDisplayProdutos>
-          {ListaDeProdutos}
+            {ListaDeProdutos}
           </DivDisplayProdutos>
 
         </AreaProdutos>
