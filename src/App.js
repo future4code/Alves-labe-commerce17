@@ -136,6 +136,7 @@ export default class App extends Component {
       },
       {
         id: "3",
+
         fotoProduto: CamisaGalaxia,
         nomeProduto: "Camiseta Galáxia",
         descrição: "Definação da váriavel Galáxia",
@@ -143,6 +144,7 @@ export default class App extends Component {
       },
       {
         id: "4",
+
         fotoProduto: CamisaPlaneta,
         nomeProduto: "Camiseta Planeta",
         descrição: "Nosso planeta. Nossa casa!",
@@ -150,6 +152,7 @@ export default class App extends Component {
       },
       {
         id: "5",
+
         fotoProduto: CamisaAstronauta,
         nomeProduto: "Camiseta Astronauta",
         descrição: "Relaxe com o Astrodev",
@@ -157,22 +160,29 @@ export default class App extends Component {
       },
       {
         id: "6",
+
         fotoProduto: CamisaApollo,
         nomeProduto: "Camiseta Apollo 11",
         descrição: "Estampa em comemoração a primeira missão lunar",
+
         preçoProduto: 80.00
       }
-    ] 
+    ],
+    inputBuscaPorNome: "",
+  }
+
+  onChangeInputBuscaPorNome = (event) => {
+    this.setState({inputBuscaPorNome: event.target.value})
   }
 
   render() {
 
     const ListaDeProdutos = this.state.ArrayProdutos.map((produtos) => {
       return <CardProduto
-            fotoProduto={produtos.fotoProduto}
-            nomeProduto={produtos.nomeProduto}
-            descrição={produtos.descrição}
-            preçoProduto={produtos.preçoProduto} />
+        fotoProduto={produtos.fotoProduto}
+        nomeProduto={produtos.nomeProduto}
+        descrição={produtos.descrição}
+        preçoProduto={produtos.preçoProduto} />
 
     })
     return (
@@ -192,7 +202,7 @@ export default class App extends Component {
               <input type="number" placeholder="1000" min="1" max="1000" />
             </LabelStyled2>
             <LabelStyled2><H4Valores>Busca por nome: </H4Valores></LabelStyled2>
-            <input type="text" value="Produto"></input>
+            <input type="text" placeholder='Camisa' value={this.state.inputBuscaPorNome} onChange={this.onChangeInputBuscaPorNome}></input>
 
           </div>
         </MenuFiltros>
@@ -222,7 +232,7 @@ export default class App extends Component {
           </DivProdutosLabel>
 
           <DivDisplayProdutos>
-          {ListaDeProdutos}
+            {ListaDeProdutos}
           </DivDisplayProdutos>
 
         </AreaProdutos>
