@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import CardProduto from './Components/CardProduto/CardProduto';
 
 const GridLayout = styled.div`
-height: 100vh;
+height: 120vh;
 width: 100vw;
 display: grid;
 grid-template-areas:"header header header"
@@ -11,16 +12,28 @@ grid-template-areas:"header header header"
                      "foot foot foot";
 grid-template-rows: 1fr 4.5fr 5fr 1fr;
 grid-template-columns: 1fr 4fr 1fr;
+
+p {
+  color: white;
+}
+
+h4 {
+  color: white;
+}
+
+label {
+  color: white;
+}
 `;
 
 const Header = styled.header`
 grid-area: header;
-background-color: red;
+background-color: #7d5fff;
 border: 1px solid;
 `
 
 const Footer = styled.footer`
-background-color: blueviolet;
+background-color: #7d5fff;
 border: 2px;
 grid-area: foot;
 `
@@ -32,13 +45,16 @@ border: 2px solid;
 justify-content: flex-start;
 justify-items: start;
 padding: 20px;
+background-color: #5758BB;
 `
 const H1Sessão = styled.h1`
 margin: 0px;
+color: white;
 `
 
 const H4Valores = styled.h4`
 margin-bottom: 3px;
+color: white;
 `
 
 const LabelStyled = styled.label`
@@ -67,11 +83,11 @@ grid-area: nav;
 border: 2px solid black;
 display: flex;
 padding: 20px;
+background-color: #5758BB;
 `
 const AreaProdutos = styled.main`
 grid-area: main;
-background-color: orange;
-border: 2px solid black;
+background-color: #1B1464;
 `
 
 const DivProdutosLabel = styled.div`
@@ -79,13 +95,78 @@ padding: 0 16px;
 display: flex;
 justify-content: space-between;
 align-items: center;
+`
 
+const DivDisplayProdutos = styled.div`
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 16px;
+padding: 10px;
+`
+
+const DivCarrinhoGrid = styled.div`
+display: grid;
+gap: 8px;
 `
 
 export default class App extends Component {
+  state = {
+    ArrayProdutos: [
+      {
+        id: "1",
+        fotoProduto: "https://picsum.photos/536/354",
+        nomeProduto: "Produto 1",
+        descrição: "asd",
+        preçoProduto: 100
+      },
+      {
+        id: "2",
+        fotoProduto: "https://picsum.photos/id/237/536/354",
+        nomeProduto: "Produto 2",
+        descrição: "",
+        preçoProduto: 50
+      },
+      {
+        id: "3",
+        fotoProduto: "https://picsum.photos/seed/picsum/536/354",
+        nomeProduto: "Produto 3",
+        descrição: "",
+        preçoProduto: 70.00
+      },
+      {
+        id: "4",
+        fotoProduto: "https://picsum.photos/id/1084/536/354?grayscale",
+        nomeProduto: "Produto 4",
+        descrição: "",
+        preçoProduto: 200.00
+      },
+      {
+        id: "5",
+        fotoProduto: "https://picsum.photos/id/1060/536/354?blur=2",
+        nomeProduto: "Produto 5",
+        descrição: "",
+        preçoProduto: 250.00
+      },
+      {
+        id: "6",
+        fotoProduto: "https://picsum.photos/id/870/536/354?grayscale&blur=2",
+        nomeProduto: "Produto 6",
+        descrição: "",
+        preçoProduto: 80.00
+      }
+    ] 
+  }
 
   render() {
 
+    const ListaDeProdutos = this.state.ArrayProdutos.map((produtos) => {
+      return <CardProduto
+            fotoProduto={produtos.fotoProduto}
+            nomeProduto={produtos.nomeProduto}
+            descrição={produtos.descrição}
+            preçoProduto={produtos.preçoProduto} />
+
+    })
     return (
       <GridLayout>
         <Header> </Header>
@@ -111,13 +192,18 @@ export default class App extends Component {
         <MenuCarrinho>
           <div>
             <H1Sessão>Carrinho: </H1Sessão>
+
+            <DivCarrinhoGrid>
+
+            </DivCarrinhoGrid>
+
             <H4Valores>Valor total: </H4Valores>
           </div>
         </MenuCarrinho>
 
         <AreaProdutos>
           <DivProdutosLabel>
-            <p>Quantidade de produtos: 0</p>
+            <p>Quantidade de produtos: 6</p>
 
             <label>Ordenação:⠀
               <select name="Ordenação">
@@ -126,7 +212,13 @@ export default class App extends Component {
               </select>
             </label>
           </DivProdutosLabel>
+
+          <DivDisplayProdutos>
+          {ListaDeProdutos}
+          </DivDisplayProdutos>
+
         </AreaProdutos>
+
         <Footer></Footer>
       </GridLayout>
     )
