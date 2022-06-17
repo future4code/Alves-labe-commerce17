@@ -192,73 +192,6 @@ export default class App extends Component {
 
   render() {
 
-    // const FiltradaMinuscula = this.state.inputBuscaPorNome.toLowerCase()
-    // let ListaFiltrada = this.state.ArrayProdutos.filter((produtos) => produtos.nomeProduto.toLowerCase().includes(FiltradaMinuscula)).map((produtos, indice) => {
-    //   return <CardProduto
-    //     key={indice}
-    //     fotoProduto={produtos.fotoProduto}
-    //     nomeProduto={produtos.nomeProduto}
-    //     descrição={produtos.descrição}
-    //     preçoProduto={produtos.preçoProduto} />
-    // })
-
-    // {
-    //   this.state.ArrayProdutos
-    //   .filter(produtos => {
-    //     return produtos.nomeProduto.toLowerCase().includes(this.state.inputBuscaPorNome.toLowerCase()) ||
-    //       produtos.descrição.toLowerCase().includes(this.state.inputBuscaPorNome.toLowerCase())
-    //   })
-    //   .filter(produtos => {
-    //     return this.state.valorMinimo === "" || produtos.preçoProduto >= this.state.valorMinimo
-    //   })
-    //   .filter(produtos => {
-    //     return this.state.valorMaximo === "" || produtos.preçoProduto <= this.state.valorMaximo
-    //   })
-    //   .sort((produtoAtual, proximoProduto) => {
-    //     return this.state.ParametroOrdenação * (produtoAtual.preçoProduto - proximoProduto.preçoProduto)
-    //   })
-    //   .map((produtos, indice) => {
-    //     return <CardProduto
-    //       key={indice}
-    //       fotoProduto={produtos.fotoProduto}
-    //       nomeProduto={produtos.nomeProduto}
-    //       descrição={produtos.descrição}
-    //       preçoProduto={produtos.preçoProduto} />
-    //   })
-    // }
-
-    // const renderizaLista = () => {
-    //   const FiltradaMinuscula = this.state.inputBuscaPorNome.toLowerCase()
-    //   if (this.state.valorMinimo <= 0 || this.state.valorMaximo <= 0) {
-    //     return ListaFiltrada = this.state.ArrayProdutos.filter((produtos) => produtos.nomeProduto.toLowerCase().includes(FiltradaMinuscula))
-    //     .map((produtos, indice) => {
-    //       return <CardProduto
-    //         key={indice}
-    //         fotoProduto={produtos.fotoProduto}
-    //         nomeProduto={produtos.nomeProduto}
-    //         descrição={produtos.descrição}
-    //         preçoProduto={produtos.preçoProduto} />
-    //     }
-    //     )
-    //   } else if (this.state.valorMinimo >= 1) {
-    //     return <FiltroNumeros
-    //       lista={this.state.ArrayProdutos}
-    //       preco={this.state.preçoProduto}
-    //       valorminimo={this.state.valorMinimo}
-    //       valormaximo={this.state.valorMaximo}
-    //     />
-
-    //   } else if (this.state.valorMaximo >= 1) {
-    //     return <FiltroNumeros
-    //       lista={this.state.ArrayProdutos}
-    //       preco={this.state.ArrayProdutos.preçoProduto}
-    //       valorminimo={this.state.valorMinimo}
-    //       valormaximo={this.state.valorMaximo}
-    //     />
-    //   }
-    // }
-
-
 
     return (
       <GridLayout>
@@ -268,12 +201,12 @@ export default class App extends Component {
           <div>
             <H1Sessão>Filtros</H1Sessão>
             <LabelStyled>
-              <H4Valores>Valor Minimo: </H4Valores>
+              <H4Valores>Valor Minimo (R$): </H4Valores>
               <input type="number" placeholder="10" id="minimo" name="minimo"
                 min="0" max="10000" value={this.state.valorMinimo} onChange={this.onChangeInputValorMinimo} />
             </LabelStyled>
             <LabelStyled2>
-              <H4Valores>Valor Máximo: </H4Valores>
+              <H4Valores>Valor Máximo (R$): </H4Valores>
               <input type="number" placeholder="1000" min="0" max="10000" id='maximo' name='maximo' value={this.state.valorMaximo} onChange={this.onChangeInputValorMaximo} />
             </LabelStyled2>
             <LabelStyled2><H4Valores>Busca: </H4Valores></LabelStyled2>
