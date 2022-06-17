@@ -73,11 +73,6 @@ margin-bottom: 8px;
 justify-content: flex-start;
 `
 
-const Input = styled.input`
-display: flex;
-flex-direction: column;
-`
-
 const LabelStyled2 = styled.label`
 display: flex;
 flex-direction: column;
@@ -116,6 +111,7 @@ const DivCarrinhoGrid = styled.div`
 display: grid;
 gap: 8px;
 `
+
 
 export default class App extends Component {
   state = {
@@ -166,25 +162,40 @@ export default class App extends Component {
         descrição: "Estampa em comemoração a primeira missão lunar",
 
         preçoProduto: 80.00
-      }
+      },
     ],
     inputBuscaPorNome: "",
+    valorMinimo: "",
+    valorMaximo: "",
   }
 
   onChangeInputBuscaPorNome = (event) => {
-    this.setState({inputBuscaPorNome: event.target.value})
+    this.setState({ inputBuscaPorNome: event.target.value })
   }
+
+  onChangeInputValorMinimo = (event) => {
+    this.setState({ valorMinimo: event.target.value })
+    console.log(this.state.valorMinimo)
+  }
+
+  onChangeInputValorMaximo = (event) => {
+    this.setState({ valorMaximo: event.target.value})
+    console.log(this.state.valorMaximo)
+  }
+
 
   render() {
 
-    const ListaDeProdutos = this.state.ArrayProdutos.map((produtos) => {
+    const FiltradaMinuscula = this.state.inputBuscaPorNome.toLowerCase()
+    let ListaFiltrada = this.state.ArrayProdutos.filter((produtos) => produtos.nomeProduto.toLowerCase().includes(FiltradaMinuscula)).map((produtos, indice) => {
       return <CardProduto
+        key={indice}
         fotoProduto={produtos.fotoProduto}
         nomeProduto={produtos.nomeProduto}
         descrição={produtos.descrição}
         preçoProduto={produtos.preçoProduto} />
-
     })
+
     return (
       <GridLayout>
         <Header> </Header>
@@ -195,14 +206,14 @@ export default class App extends Component {
             <LabelStyled>
               <H4Valores>Valor Minimo: </H4Valores>
               <input type="number" placeholder="10" id="minimo" name="minimo"
-                min="10" max="100" />
+                min="0" max="10000" value={this.state.valorMinimo} onChange={this.onChangeInputValorMinimo} />
             </LabelStyled>
             <LabelStyled2>
               <H4Valores>Valor Máximo: </H4Valores>
-              <input type="number" placeholder="1000" min="1" max="1000" />
+              <input type="number" placeholder="100" min="0" max="10000" id='maximo' name='maximo' value={this.state.valorMaximo} onChange={this.onChangeInputValorMaximo}  />
             </LabelStyled2>
             <LabelStyled2><H4Valores>Busca por nome: </H4Valores></LabelStyled2>
-            <input type="text" placeholder='Camisa' value={this.state.inputBuscaPorNome} onChange={this.onChangeInputBuscaPorNome}></input>
+            <input type="text" placeholder='Camisa...' value={this.state.inputBuscaPorNome} onChange={this.onChangeInputBuscaPorNome}></input>
 
           </div>
         </MenuFiltros>
@@ -232,7 +243,7 @@ export default class App extends Component {
           </DivProdutosLabel>
 
           <DivDisplayProdutos>
-            {ListaDeProdutos}
+            {ListaFiltrada}
           </DivDisplayProdutos>
 
         </AreaProdutos>
