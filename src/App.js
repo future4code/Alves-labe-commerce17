@@ -166,8 +166,9 @@ export default class App extends Component {
       },
     ],
     inputBuscaPorNome: "",
-    valorMinimo: 1,
-    valorMaximo: 0,
+    valorMinimo: "",
+    valorMaximo: "",
+    ParametroOrdenação: ""
   }
 
   onChangeInputBuscaPorNome = (event) => {
@@ -184,50 +185,78 @@ export default class App extends Component {
     console.log(this.state.valorMaximo)
   }
 
-
+  onChangeParametroOrdenação = (event) => {
+    this.setState({ ParametroOrdenação: event.target.value })
+  }
 
 
   render() {
 
-    const FiltradaMinuscula = this.state.inputBuscaPorNome.toLowerCase()
-    let ListaFiltrada = this.state.ArrayProdutos.filter((produtos) => produtos.nomeProduto.toLowerCase().includes(FiltradaMinuscula)).map((produtos, indice) => {
-      return <CardProduto
-        key={indice}
-        fotoProduto={produtos.fotoProduto}
-        nomeProduto={produtos.nomeProduto}
-        descrição={produtos.descrição}
-        preçoProduto={produtos.preçoProduto} />
-    })
+    // const FiltradaMinuscula = this.state.inputBuscaPorNome.toLowerCase()
+    // let ListaFiltrada = this.state.ArrayProdutos.filter((produtos) => produtos.nomeProduto.toLowerCase().includes(FiltradaMinuscula)).map((produtos, indice) => {
+    //   return <CardProduto
+    //     key={indice}
+    //     fotoProduto={produtos.fotoProduto}
+    //     nomeProduto={produtos.nomeProduto}
+    //     descrição={produtos.descrição}
+    //     preçoProduto={produtos.preçoProduto} />
+    // })
 
-    const renderizaLista = () => {
-      const FiltradaMinuscula = this.state.inputBuscaPorNome.toLowerCase()
-      if (this.state.valorMinimo <= 0 || this.state.valorMaximo <= 0) {
-        return ListaFiltrada = this.state.ArrayProdutos.filter((produtos) => produtos.nomeProduto.toLowerCase().includes(FiltradaMinuscula)).map((produtos, indice) => {
-          return <CardProduto
-            key={indice}
-            fotoProduto={produtos.fotoProduto}
-            nomeProduto={produtos.nomeProduto}
-            descrição={produtos.descrição}
-            preçoProduto={produtos.preçoProduto} />
-        }
-        )
-      } else if (this.state.valorMinimo >= 1) {
-        return <FiltroNumeros
-          lista={this.state.ArrayProdutos}
-          preco={this.state.preçoProduto}
-          valorminimo={this.state.valorMinimo}
-          valormaximo={this.state.valorMaximo}
-        />
+    // {
+    //   this.state.ArrayProdutos
+    //   .filter(produtos => {
+    //     return produtos.nomeProduto.toLowerCase().includes(this.state.inputBuscaPorNome.toLowerCase()) ||
+    //       produtos.descrição.toLowerCase().includes(this.state.inputBuscaPorNome.toLowerCase())
+    //   })
+    //   .filter(produtos => {
+    //     return this.state.valorMinimo === "" || produtos.preçoProduto >= this.state.valorMinimo
+    //   })
+    //   .filter(produtos => {
+    //     return this.state.valorMaximo === "" || produtos.preçoProduto <= this.state.valorMaximo
+    //   })
+    //   .sort((produtoAtual, proximoProduto) => {
+    //     return this.state.ParametroOrdenação * (produtoAtual.preçoProduto - proximoProduto.preçoProduto)
+    //   })
+    //   .map((produtos, indice) => {
+    //     return <CardProduto
+    //       key={indice}
+    //       fotoProduto={produtos.fotoProduto}
+    //       nomeProduto={produtos.nomeProduto}
+    //       descrição={produtos.descrição}
+    //       preçoProduto={produtos.preçoProduto} />
+    //   })
+    // }
 
-      } else if (this.state.valorMaximo >= 1) {
-        return <FiltroNumeros
-          lista={this.state.ArrayProdutos}
-          preco={this.state.ArrayProdutos.preçoProduto}
-          valorminimo={this.state.valorMinimo}
-          valormaximo={this.state.valorMaximo}
-        />
-      }
-    }
+    // const renderizaLista = () => {
+    //   const FiltradaMinuscula = this.state.inputBuscaPorNome.toLowerCase()
+    //   if (this.state.valorMinimo <= 0 || this.state.valorMaximo <= 0) {
+    //     return ListaFiltrada = this.state.ArrayProdutos.filter((produtos) => produtos.nomeProduto.toLowerCase().includes(FiltradaMinuscula))
+    //     .map((produtos, indice) => {
+    //       return <CardProduto
+    //         key={indice}
+    //         fotoProduto={produtos.fotoProduto}
+    //         nomeProduto={produtos.nomeProduto}
+    //         descrição={produtos.descrição}
+    //         preçoProduto={produtos.preçoProduto} />
+    //     }
+    //     )
+    //   } else if (this.state.valorMinimo >= 1) {
+    //     return <FiltroNumeros
+    //       lista={this.state.ArrayProdutos}
+    //       preco={this.state.preçoProduto}
+    //       valorminimo={this.state.valorMinimo}
+    //       valormaximo={this.state.valorMaximo}
+    //     />
+
+    //   } else if (this.state.valorMaximo >= 1) {
+    //     return <FiltroNumeros
+    //       lista={this.state.ArrayProdutos}
+    //       preco={this.state.ArrayProdutos.preçoProduto}
+    //       valorminimo={this.state.valorMinimo}
+    //       valormaximo={this.state.valorMaximo}
+    //     />
+    //   }
+    // }
 
 
 
@@ -245,9 +274,9 @@ export default class App extends Component {
             </LabelStyled>
             <LabelStyled2>
               <H4Valores>Valor Máximo: </H4Valores>
-              <input type="number" placeholder="100" min="0" max="10000" id='maximo' name='maximo' value={this.state.valorMaximo} onChange={this.onChangeInputValorMaximo} />
+              <input type="number" placeholder="1000" min="0" max="10000" id='maximo' name='maximo' value={this.state.valorMaximo} onChange={this.onChangeInputValorMaximo} />
             </LabelStyled2>
-            <LabelStyled2><H4Valores>Busca por nome: </H4Valores></LabelStyled2>
+            <LabelStyled2><H4Valores>Busca: </H4Valores></LabelStyled2>
             <input type="text" placeholder='Camisa...' value={this.state.inputBuscaPorNome} onChange={this.onChangeInputBuscaPorNome}></input>
 
           </div>
@@ -267,18 +296,43 @@ export default class App extends Component {
 
         <AreaProdutos>
           <DivProdutosLabel>
-            <p>Quantidade de produtos: 6</p>
+            <p>Quantidade de produtos: {this.state.ArrayProdutos.length}</p>
 
             <label>Ordenação:⠀
-              <select name="Ordenação">
-                <option value="Decrescente">Decrescente</option>
-                <option value="Crescente">Crescente</option>
+              <select
+                value={this.state.ParametroOrdenação}
+                onChange={this.onChangeParametroOrdenação}
+                name="Ordenação">
+                <option value={1}>Crescente</option>
+                <option value={-1}>Decrescente</option>
               </select>
             </label>
           </DivProdutosLabel>
 
           <DivDisplayProdutos>
-            {renderizaLista()}
+            {this.state.ArrayProdutos
+              .filter(produtos => {
+                return produtos.nomeProduto.toLowerCase().includes(this.state.inputBuscaPorNome.toLowerCase()) ||
+                  produtos.descrição.toLowerCase().includes(this.state.inputBuscaPorNome.toLowerCase())
+              })
+              .filter(produtos => {
+                return this.state.valorMinimo === "" || produtos.preçoProduto >= this.state.valorMinimo
+              })
+              .filter(produtos => {
+                return this.state.valorMaximo === "" || produtos.preçoProduto <= this.state.valorMaximo
+              })
+              .sort((produtoAtual, proximoProduto) => {
+                return this.state.ParametroOrdenação * (produtoAtual.preçoProduto - proximoProduto.preçoProduto)
+              })
+              .map((produtos, indice) => {
+                return <CardProduto
+                  key={indice}
+                  fotoProduto={produtos.fotoProduto}
+                  nomeProduto={produtos.nomeProduto}
+                  descrição={produtos.descrição}
+                  preçoProduto={produtos.preçoProduto} />
+              })
+            }
           </DivDisplayProdutos>
 
         </AreaProdutos>
