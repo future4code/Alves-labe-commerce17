@@ -35,6 +35,14 @@ h2{
 
 const PhotoProduto = styled.img`
 width: 100%;
+transform: scale(1.0);
+transition-duration: 0.5s;
+
+:hover {
+  transform: scale(1.1);
+  transition-duration: 0.5s;
+
+}
 `
 
 const BotãoCarrinho = styled.button`
