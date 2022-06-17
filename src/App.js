@@ -7,6 +7,7 @@ import CamisaApollo from './Imagens/Camisa-Apollo.png'
 import CamisaGalaxia from './Imagens/Camisa-Galaxia.png'
 import CamisaPlaneta from './Imagens/Camisa-Planeta.png'
 import CamisaAstronauta from './Imagens/Camisa-Astronauta.png'
+import FiltroNumeros from './Components/FiltroNumeros.js/FiltroNumeros';
 
 
 
@@ -136,7 +137,7 @@ export default class App extends Component {
         fotoProduto: CamisaGalaxia,
         nomeProduto: "Camiseta Galáxia",
         descrição: "Definação da váriavel Galáxia",
-        preçoProduto: 70.00
+        preçoProduto: 70
       },
       {
         id: "4",
@@ -144,7 +145,7 @@ export default class App extends Component {
         fotoProduto: CamisaPlaneta,
         nomeProduto: "Camiseta Planeta",
         descrição: "Nosso planeta. Nossa casa!",
-        preçoProduto: 200.00
+        preçoProduto: 200
       },
       {
         id: "5",
@@ -152,7 +153,7 @@ export default class App extends Component {
         fotoProduto: CamisaAstronauta,
         nomeProduto: "Camiseta Astronauta",
         descrição: "Relaxe com o Astrodev",
-        preçoProduto: 250.00
+        preçoProduto: 250
       },
       {
         id: "6",
@@ -161,12 +162,12 @@ export default class App extends Component {
         nomeProduto: "Camiseta Apollo 11",
         descrição: "Estampa em comemoração a primeira missão lunar",
 
-        preçoProduto: 80.00
+        preçoProduto: 80
       },
     ],
     inputBuscaPorNome: "",
-    valorMinimo: "",
-    valorMaximo: "",
+    valorMinimo: 1,
+    valorMaximo: 0,
   }
 
   onChangeInputBuscaPorNome = (event) => {
@@ -179,9 +180,11 @@ export default class App extends Component {
   }
 
   onChangeInputValorMaximo = (event) => {
-    this.setState({ valorMaximo: event.target.value})
+    this.setState({ valorMaximo: event.target.value })
     console.log(this.state.valorMaximo)
   }
+
+
 
 
   render() {
@@ -195,6 +198,38 @@ export default class App extends Component {
         descrição={produtos.descrição}
         preçoProduto={produtos.preçoProduto} />
     })
+
+    const renderizaLista = () => {
+      const FiltradaMinuscula = this.state.inputBuscaPorNome.toLowerCase()
+      if (this.state.valorMinimo <= 0 || this.state.valorMaximo <= 0) {
+        return ListaFiltrada = this.state.ArrayProdutos.filter((produtos) => produtos.nomeProduto.toLowerCase().includes(FiltradaMinuscula)).map((produtos, indice) => {
+          return <CardProduto
+            key={indice}
+            fotoProduto={produtos.fotoProduto}
+            nomeProduto={produtos.nomeProduto}
+            descrição={produtos.descrição}
+            preçoProduto={produtos.preçoProduto} />
+        }
+        )
+      } else if (this.state.valorMinimo >= 1) {
+        return <FiltroNumeros
+          lista={this.state.ArrayProdutos}
+          preco={this.state.preçoProduto}
+          valorminimo={this.state.valorMinimo}
+          valormaximo={this.state.valorMaximo}
+        />
+
+      } else if (this.state.valorMaximo >= 1) {
+        return <FiltroNumeros
+          lista={this.state.ArrayProdutos}
+          preco={this.state.ArrayProdutos.preçoProduto}
+          valorminimo={this.state.valorMinimo}
+          valormaximo={this.state.valorMaximo}
+        />
+      }
+    }
+
+
 
     return (
       <GridLayout>
@@ -210,7 +245,7 @@ export default class App extends Component {
             </LabelStyled>
             <LabelStyled2>
               <H4Valores>Valor Máximo: </H4Valores>
-              <input type="number" placeholder="100" min="0" max="10000" id='maximo' name='maximo' value={this.state.valorMaximo} onChange={this.onChangeInputValorMaximo}  />
+              <input type="number" placeholder="100" min="0" max="10000" id='maximo' name='maximo' value={this.state.valorMaximo} onChange={this.onChangeInputValorMaximo} />
             </LabelStyled2>
             <LabelStyled2><H4Valores>Busca por nome: </H4Valores></LabelStyled2>
             <input type="text" placeholder='Camisa...' value={this.state.inputBuscaPorNome} onChange={this.onChangeInputBuscaPorNome}></input>
@@ -243,7 +278,7 @@ export default class App extends Component {
           </DivProdutosLabel>
 
           <DivDisplayProdutos>
-            {ListaFiltrada}
+            {renderizaLista()}
           </DivDisplayProdutos>
 
         </AreaProdutos>
