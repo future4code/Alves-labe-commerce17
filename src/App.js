@@ -7,7 +7,8 @@ import CamisaApollo from './Imagens/Camisa-Apollo.png'
 import CamisaGalaxia from './Imagens/Camisa-Galaxia.png'
 import CamisaPlaneta from './Imagens/Camisa-Planeta.png'
 import CamisaAstronauta from './Imagens/Camisa-Astronauta.png'
-import FiltroNumeros from './Components/FiltroNumeros.js/FiltroNumeros';
+import Frete from './Imagens/Frete.png'
+import LogoTemporario from './Imagens/Logo-Temporario.png'
 
 
 
@@ -20,7 +21,7 @@ grid-template-areas:"header header header"
                      "aside main nav"
                      "foot foot foot";
 grid-template-rows: 1fr 4.5fr 5fr 1fr;
-grid-template-columns: 1fr 4fr 1fr;
+grid-template-columns: 1fr 5fr 1fr;
 
 p {
   color: white;
@@ -38,7 +39,34 @@ label {
 const Header = styled.header`
 grid-area: header;
 background-color: #7d5fff;
-border: 1px solid;
+display: grid;
+justify-items: center;
+
+> img {
+  height: 10vh;
+  margin-top: 10px;
+  
+}
+`
+const MiniAvisoPromocional = styled.div`
+height: 4vh;
+display:flex;
+justify-content: center;
+width: 100vw;
+background-color: white;
+
+P {
+  color: black;
+  font-weight: 500;
+  margin-top: 8.5px;
+}
+`
+
+const DivMenuHeader = styled.div`
+display: flex;
+height: 10vh;
+width: 50vw;
+background-color: azure;
 `
 
 const Footer = styled.footer`
@@ -50,11 +78,10 @@ grid-area: foot;
 const MenuFiltros = styled.aside`
 grid-area: aside;
 display: flex;
-border: 2px solid;
 justify-content: flex-start;
 justify-items: start;
-padding: 20px;
-background-color: #5758BB;
+padding: 30px;
+background-color: #1b1464;
 `
 const H1Sessão = styled.h1`
 margin: 0px;
@@ -84,10 +111,9 @@ justify-content: flex-start;
 
 const MenuCarrinho = styled.nav`
 grid-area: nav;
-border: 2px solid black;
 display: flex;
 padding: 20px;
-background-color: #5758BB;
+background-color: #1b1464;
 `
 const AreaProdutos = styled.main`
 grid-area: main;
@@ -192,88 +218,25 @@ export default class App extends Component {
 
   render() {
 
-    // const FiltradaMinuscula = this.state.inputBuscaPorNome.toLowerCase()
-    // let ListaFiltrada = this.state.ArrayProdutos.filter((produtos) => produtos.nomeProduto.toLowerCase().includes(FiltradaMinuscula)).map((produtos, indice) => {
-    //   return <CardProduto
-    //     key={indice}
-    //     fotoProduto={produtos.fotoProduto}
-    //     nomeProduto={produtos.nomeProduto}
-    //     descrição={produtos.descrição}
-    //     preçoProduto={produtos.preçoProduto} />
-    // })
-
-    // {
-    //   this.state.ArrayProdutos
-    //   .filter(produtos => {
-    //     return produtos.nomeProduto.toLowerCase().includes(this.state.inputBuscaPorNome.toLowerCase()) ||
-    //       produtos.descrição.toLowerCase().includes(this.state.inputBuscaPorNome.toLowerCase())
-    //   })
-    //   .filter(produtos => {
-    //     return this.state.valorMinimo === "" || produtos.preçoProduto >= this.state.valorMinimo
-    //   })
-    //   .filter(produtos => {
-    //     return this.state.valorMaximo === "" || produtos.preçoProduto <= this.state.valorMaximo
-    //   })
-    //   .sort((produtoAtual, proximoProduto) => {
-    //     return this.state.ParametroOrdenação * (produtoAtual.preçoProduto - proximoProduto.preçoProduto)
-    //   })
-    //   .map((produtos, indice) => {
-    //     return <CardProduto
-    //       key={indice}
-    //       fotoProduto={produtos.fotoProduto}
-    //       nomeProduto={produtos.nomeProduto}
-    //       descrição={produtos.descrição}
-    //       preçoProduto={produtos.preçoProduto} />
-    //   })
-    // }
-
-    // const renderizaLista = () => {
-    //   const FiltradaMinuscula = this.state.inputBuscaPorNome.toLowerCase()
-    //   if (this.state.valorMinimo <= 0 || this.state.valorMaximo <= 0) {
-    //     return ListaFiltrada = this.state.ArrayProdutos.filter((produtos) => produtos.nomeProduto.toLowerCase().includes(FiltradaMinuscula))
-    //     .map((produtos, indice) => {
-    //       return <CardProduto
-    //         key={indice}
-    //         fotoProduto={produtos.fotoProduto}
-    //         nomeProduto={produtos.nomeProduto}
-    //         descrição={produtos.descrição}
-    //         preçoProduto={produtos.preçoProduto} />
-    //     }
-    //     )
-    //   } else if (this.state.valorMinimo >= 1) {
-    //     return <FiltroNumeros
-    //       lista={this.state.ArrayProdutos}
-    //       preco={this.state.preçoProduto}
-    //       valorminimo={this.state.valorMinimo}
-    //       valormaximo={this.state.valorMaximo}
-    //     />
-
-    //   } else if (this.state.valorMaximo >= 1) {
-    //     return <FiltroNumeros
-    //       lista={this.state.ArrayProdutos}
-    //       preco={this.state.ArrayProdutos.preçoProduto}
-    //       valorminimo={this.state.valorMinimo}
-    //       valormaximo={this.state.valorMaximo}
-    //     />
-    //   }
-    // }
-
-
 
     return (
       <GridLayout>
-        <Header> </Header>
+        
+        <Header> 
+        <MiniAvisoPromocional><img src={Frete} alt='caminhao frete'/>⠀<p>Frete grátis para todo o Brasil apartir de R$200</p></MiniAvisoPromocional>
+        <img src={LogoTemporario} alt='caminhao frete'/>
+        </Header>
 
         <MenuFiltros>
           <div>
             <H1Sessão>Filtros</H1Sessão>
             <LabelStyled>
-              <H4Valores>Valor Minimo: </H4Valores>
+              <H4Valores>Valor Minimo (R$): </H4Valores>
               <input type="number" placeholder="10" id="minimo" name="minimo"
                 min="0" max="10000" value={this.state.valorMinimo} onChange={this.onChangeInputValorMinimo} />
             </LabelStyled>
             <LabelStyled2>
-              <H4Valores>Valor Máximo: </H4Valores>
+              <H4Valores>Valor Máximo (R$): </H4Valores>
               <input type="number" placeholder="1000" min="0" max="10000" id='maximo' name='maximo' value={this.state.valorMaximo} onChange={this.onChangeInputValorMaximo} />
             </LabelStyled2>
             <LabelStyled2><H4Valores>Busca: </H4Valores></LabelStyled2>
