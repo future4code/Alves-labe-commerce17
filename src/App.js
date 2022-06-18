@@ -1,3 +1,4 @@
+
 import React, { Component } from "react";
 import styled from "styled-components";
 import CardProduto from "./Components/CardProduto/CardProduto";
@@ -25,6 +26,9 @@ const GridLayout = styled.div`
     color: white;
   }
 
+
+
+
   h4 {
     color: white;
   }
@@ -35,10 +39,37 @@ const GridLayout = styled.div`
 `;
 
 const Header = styled.header`
-  grid-area: header;
-  background-color: #7d5fff;
-  border: 1px solid;
-`;
+grid-area: header;
+background-color: #7d5fff;
+display: grid;
+justify-items: center;
+
+> img {
+  height: 10vh;
+  margin-top: 10px;
+  
+}
+`
+const MiniAvisoPromocional = styled.div`
+height: 4vh;
+display:flex;
+justify-content: center;
+width: 100vw;
+background-color: white;
+
+P {
+  color: black;
+  font-weight: 500;
+  margin-top: 8.5px;
+}
+`
+
+const DivMenuHeader = styled.div`
+display: flex;
+height: 10vh;
+width: 50vw;
+background-color: azure;
+`
 
 const Footer = styled.footer`
   background-color: #7d5fff;
@@ -47,14 +78,14 @@ const Footer = styled.footer`
 `;
 
 const MenuFiltros = styled.aside`
-  grid-area: aside;
-  display: flex;
-  border: 2px solid;
-  justify-content: flex-start;
-  justify-items: start;
-  padding: 20px;
-  background-color: #5758bb;
-`;
+
+grid-area: aside;
+display: flex;
+justify-content: flex-start;
+justify-items: start;
+padding: 30px;
+background-color: #1b1464;
+`
 const H1Sessão = styled.h1`
   margin: 0px;
   color: white;
@@ -82,12 +113,15 @@ const LabelStyled2 = styled.label`
 `;
 
 const MenuCarrinho = styled.nav`
+
   grid-area: nav;
   border: 2px solid black;
   display: flex;
   padding: 20px;
   background-color: #5758bb;
 `;
+
+
 const AreaProdutos = styled.main`
   grid-area: main;
   background-color: #1b1464;
@@ -188,6 +222,7 @@ export default class App extends Component {
   };
 
   render() {
+
     // const FiltradaMinuscula = this.state.inputBuscaPorNome.toLowerCase()
     // let ListaFiltrada = this.state.ArrayProdutos.filter((produtos) => produtos.nomeProduto.toLowerCase().includes(FiltradaMinuscula)).map((produtos, indice) => {
     //   return <CardProduto
@@ -254,14 +289,20 @@ export default class App extends Component {
     //   }
     // }
 
+
     return (
       <GridLayout>
-        <Header> </Header>
+        
+        <Header> 
+        <MiniAvisoPromocional><img src={Frete} alt='caminhao frete'/>⠀<p>Frete grátis para todo o Brasil apartir de R$200</p></MiniAvisoPromocional>
+        <img src={LogoTemporario} alt='caminhao frete'/>
+        </Header>
 
         <MenuFiltros>
           <div>
             <H1Sessão>Filtros</H1Sessão>
             <LabelStyled>
+
               <H4Valores>Valor Minimo: </H4Valores>
               <input
                 type="number"
@@ -286,6 +327,15 @@ export default class App extends Component {
                 value={this.state.valorMaximo}
                 onChange={this.onChangeInputValorMaximo}
               />
+
+              <H4Valores>Valor Minimo (R$): </H4Valores>
+              <input type="number" placeholder="10" id="minimo" name="minimo"
+                min="0" max="10000" value={this.state.valorMinimo} onChange={this.onChangeInputValorMinimo} />
+            </LabelStyled>
+            <LabelStyled2>
+              <H4Valores>Valor Máximo (R$): </H4Valores>
+              <input type="number" placeholder="1000" min="0" max="10000" id='maximo' name='maximo' value={this.state.valorMaximo} onChange={this.onChangeInputValorMaximo} />
+
             </LabelStyled2>
             <LabelStyled2>
               <H4Valores>Busca: </H4Valores>
