@@ -21,32 +21,25 @@ grid-template-areas:"header header header"
                      "foot foot foot";
 grid-template-rows: 1fr 4.5fr 5fr 1fr;
 grid-template-columns: 1fr 5fr 1fr;
-
 p {
   color: white;
 }
-
 h4 {
   color: white;
 }
-
 label {
   color: white;
 }
-
 overflow-x: hidden;
 `;
-
 const Header = styled.header`
 grid-area: header;
-background-color: #7d5fff;
+background-color: #7D5FFF;
 display: grid;
 justify-items: center;
-
 > img {
   height: 10vh;
   margin-top: 10px;
-  
 }
 `
 const MiniAvisoPromocional = styled.div`
@@ -55,38 +48,33 @@ display:flex;
 justify-content: center;
 width: 100vw;
 background-color: white;
-
 P {
   color: black;
   font-weight: 500;
   margin-top: 8.5px;
 }
 `
-
 const Footer = styled.footer`
-background-color: #7d5fff;
+background-color: #7D5FFF;
 border: 2px;
 grid-area: foot;
 `
-
 const MenuFiltros = styled.aside`
 grid-area: aside;
 display: flex;
 justify-content: flex-start;
 justify-items: start;
 padding: 30px;
-background-color: #1b1464;
+background-color: #1B1464;
 `
 const H1Sessão = styled.h1`
 margin: 0px;
 color: white;
 `
-
 const H4Valores = styled.h4`
 margin-bottom: 3px;
 color: white;
 `
-
 const LabelStyled = styled.label`
 display: flex;
 flex-direction: column;
@@ -94,7 +82,6 @@ align-items: flex-start;
 margin-bottom: 8px;
 justify-content: flex-start;
 `
-
 const LabelStyled2 = styled.label`
 display: flex;
 flex-direction: column;
@@ -102,38 +89,32 @@ align-items: flex-start;
 margin-bottom: 8px;
 justify-content: flex-start;
 `
-
 const MenuCarrinho = styled.nav`
 grid-area: nav;
 display: flex;
 padding: 20px;
-background-color: #1b1464;
+background-color: #1B1464;
 `
 const AreaProdutos = styled.main`
 grid-area: main;
 background-color: #1B1464;
 `
-
 const DivProdutosLabel = styled.div`
 padding: 0 16px;
 display: flex;
 justify-content: space-between;
 align-items: center;
 `
-
 const DivDisplayProdutos = styled.div`
 display: grid;
 grid-template-columns: repeat(3, 1fr);
 gap: 16px;
 padding: 10px;
 `
-
 const DivCarrinhoGrid = styled.div`
 display: grid;
 gap: 8px;
 `
-
-
 export default class App extends Component {
   state = {
     ArrayProdutos: [
@@ -153,7 +134,6 @@ export default class App extends Component {
       },
       {
         id: "3",
-
         fotoProduto: CamisaGalaxia,
         nomeProduto: "Camiseta Galáxia",
         descrição: "Definação da váriavel Galáxia",
@@ -161,7 +141,6 @@ export default class App extends Component {
       },
       {
         id: "4",
-
         fotoProduto: CamisaPlaneta,
         nomeProduto: "Camiseta Planeta",
         descrição: "Nosso planeta. Nossa casa!",
@@ -169,7 +148,6 @@ export default class App extends Component {
       },
       {
         id: "5",
-
         fotoProduto: CamisaAstronauta,
         nomeProduto: "Camiseta Astronauta",
         descrição: "Relaxe com o Astrodev",
@@ -177,11 +155,9 @@ export default class App extends Component {
       },
       {
         id: "6",
-
         fotoProduto: CamisaApollo,
         nomeProduto: "Camiseta Apollo 11",
         descrição: "Estampa em comemoração a primeira missão lunar",
-
         preçoProduto: 80
       },
     ],
@@ -190,37 +166,27 @@ export default class App extends Component {
     valorMaximo: "",
     ParametroOrdenação: ""
   }
-
   onChangeInputBuscaPorNome = (event) => {
     this.setState({ inputBuscaPorNome: event.target.value })
   }
-
   onChangeInputValorMinimo = (event) => {
     this.setState({ valorMinimo: event.target.value })
     console.log(this.state.valorMinimo)
   }
-
   onChangeInputValorMaximo = (event) => {
     this.setState({ valorMaximo: event.target.value })
     console.log(this.state.valorMaximo)
   }
-
   onChangeParametroOrdenação = (event) => {
     this.setState({ ParametroOrdenação: event.target.value })
   }
-
-
   render() {
-
-
     return (
       <GridLayout>
-
         <Header>
           <MiniAvisoPromocional><img src={Frete} alt='caminhao frete' />⠀<p>Frete grátis para todo o Brasil apartir de R$200</p></MiniAvisoPromocional>
           <img src={LogoTemporario} alt='caminhao frete' />
         </Header>
-
         <MenuFiltros>
           <div>
             <H1Sessão>Filtros</H1Sessão>
@@ -235,26 +201,19 @@ export default class App extends Component {
             </LabelStyled2>
             <LabelStyled2><H4Valores>Busca: </H4Valores></LabelStyled2>
             <input type="text" placeholder='Camisa...' value={this.state.inputBuscaPorNome} onChange={this.onChangeInputBuscaPorNome}></input>
-
           </div>
         </MenuFiltros>
-
         <MenuCarrinho>
           <div>
             <H1Sessão>Carrinho: </H1Sessão>
-
             <DivCarrinhoGrid>
-
             </DivCarrinhoGrid>
-
             <H4Valores>Valor total: </H4Valores>
           </div>
         </MenuCarrinho>
-
         <AreaProdutos>
           <DivProdutosLabel>
             <p>Quantidade de produtos: {this.state.ArrayProdutos.length}</p>
-
             <label>Ordenação:⠀
               <select
                 value={this.state.ParametroOrdenação}
@@ -265,7 +224,6 @@ export default class App extends Component {
               </select>
             </label>
           </DivProdutosLabel>
-
           <DivDisplayProdutos>
             {this.state.ArrayProdutos
               .filter(produtos => {
@@ -291,12 +249,9 @@ export default class App extends Component {
               })
             }
           </DivDisplayProdutos>
-
         </AreaProdutos>
-
         <Footer></Footer>
       </GridLayout>
     )
   }
 }
-
