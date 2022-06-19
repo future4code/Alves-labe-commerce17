@@ -18,6 +18,7 @@ p {
 h4{
   margin-bottom: 0;
   margin-top: 5px;
+  font-size: 18px;
 }
 h3{
   margin-bottom: 0;
@@ -38,8 +39,8 @@ transition-duration: 0.5s;
 `
 const BotãoCarrinho = styled.button`
   color: #FFFFFF;
-align-self: center;
--webkit-box-sizing: border-box;
+  align-self: center;
+  -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   cursor: pointer;
@@ -59,8 +60,8 @@ align-self: center;
   font-weight: 500;
   transition: background 0.8s;
   background-position: center;
-    :hover {
-  background: #192C53 radial-gradient(circle, transparent 1%,#192C53 1%) center/15000%;
+  :hover {
+  background: #1b1464 radial-gradient(circle, transparent 1%,#192C53 1%) center/15000%;
   color: #FFFFFF;
   }
 `
@@ -68,12 +69,14 @@ export default class CardProduto extends Component {
   render() {
     return (
       <DivCardProdutos>
-        <PhotoProduto src={this.props.fotoProduto} alt={"Imagem do Produto"}></PhotoProduto>
+        <PhotoProduto src={this.props.fotoProduto} alt={this.props.nomeProduto}></PhotoProduto>
         <DivNomeEValores>
           <h2>{this.props.nomeProduto}</h2>
           <p>{this.props.descrição}</p>
-          <h4>R${this.props.preçoProduto},00</h4>
-          <BotãoCarrinho name="Carrinho">Adicionar ao Carrinho <span>🛒</span></BotãoCarrinho>
+          <h4>{this.props.preçoProduto}</h4>
+          <BotãoCarrinho 
+          onClick={() => this.props.adicionarItem(this.props.id)}
+          name="Carrinho">Adicionar ao Carrinho <span role="img" aria-label="cart">🛒</span></BotãoCarrinho>
         </DivNomeEValores>
       </DivCardProdutos>
     )
