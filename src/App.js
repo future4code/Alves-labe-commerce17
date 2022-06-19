@@ -10,8 +10,6 @@ import CamisaAstronauta from './Imagens/Camisa-Astronauta.png'
 import Frete from './Imagens/Frete.png'
 import LogoTemporario from './Imagens/Logo-Temporario.png'
 
-
-
 const GridLayout = styled.div`
 height: 200vh;
 width: 100vw;
