@@ -85,7 +85,7 @@ export default class CardProduto extends Component {
           <h2>{this.props.nomeProduto}</h2>
           <p>{this.props.descrição}</p>
           <h4>R${this.props.preçoProduto},00</h4>
-          <BotãoCarrinho name="Carrinho">Adicionar ao Carrinho 🛒</BotãoCarrinho>
+          <BotãoCarrinho name="Carrinho">Adicionar ao Carrinho <span>🛒</span></BotãoCarrinho>
           </DivNomeEValores>
          </DivCardProdutos>
     )

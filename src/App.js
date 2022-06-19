@@ -15,6 +15,7 @@ import LogoTemporario from './Imagens/Logo-Temporario.png'
 const GridLayout = styled.div`
 height: 200vh;
 width: 100vw;
+max-width:100%;
 display: grid;
 grid-template-areas:"header header header"
                      "aside main nav"
@@ -34,6 +35,8 @@ h4 {
 label {
   color: white;
 }
+
+overflow-x: hidden;
 `;
 
 const Header = styled.header`
@@ -60,13 +63,6 @@ P {
   font-weight: 500;
   margin-top: 8.5px;
 }
-`
-
-const DivMenuHeader = styled.div`
-display: flex;
-height: 10vh;
-width: 50vw;
-background-color: azure;
 `
 
 const Footer = styled.footer`
