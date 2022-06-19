@@ -11,31 +11,27 @@ import CamisaAstronauta from "./Imagens/Camisa-Astronauta.png";
 import FiltroNumeros from "./Components/FiltroNumeros.js/FiltroNumeros";
 
 const GridLayout = styled.div`
-  height: 200vh;
-  width: 100vw;
-  display: grid;
-  grid-template-areas:
-    "header header header"
-    "aside main nav"
-    "aside main nav"
-    "foot foot foot";
-  grid-template-rows: 1fr 4.5fr 5fr 1fr;
-  grid-template-columns: 1fr 4fr 1fr;
+height: 200vh;
+width: 100vw;
+max-width:100%;
+display: grid;
+grid-template-areas:"header header header"
+                     "aside main nav"
+                     "aside main nav"
+                     "foot foot foot";
+grid-template-rows: 1fr 4.5fr 5fr 1fr;
+grid-template-columns: 1fr 5fr 1fr;
 
-  p {
-    color: white;
-  }
+p {
+  color: white;
+}
 
+label {
+  color: white;
+}
 
+overflow-x: hidden;
 
-
-  h4 {
-    color: white;
-  }
-
-  label {
-    color: white;
-  }
 `;
 
 const Header = styled.header`
@@ -62,13 +58,6 @@ P {
   font-weight: 500;
   margin-top: 8.5px;
 }
-`
-
-const DivMenuHeader = styled.div`
-display: flex;
-height: 10vh;
-width: 50vw;
-background-color: azure;
 `
 
 const Footer = styled.footer`
