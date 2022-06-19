@@ -215,10 +215,10 @@ export default class App extends Component {
 
     return (
       <GridLayout>
-        
-        <Header> 
-        <MiniAvisoPromocional><img src={Frete} alt='caminhao frete'/>⠀<p>Frete grátis para todo o Brasil apartir de R$200</p></MiniAvisoPromocional>
-        <img src={LogoTemporario} alt='caminhao frete'/>
+
+        <Header>
+          <MiniAvisoPromocional><img src={Frete} alt='caminhao frete' />⠀<p>Frete grátis para todo o Brasil apartir de R$200</p></MiniAvisoPromocional>
+          <img src={LogoTemporario} alt='caminhao frete' />
         </Header>
 
         <MenuFiltros>

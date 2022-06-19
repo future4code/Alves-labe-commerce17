@@ -80,14 +80,14 @@ export default class CardProduto extends Component {
   render() {
     return (
       <DivCardProdutos>
-          <PhotoProduto src={this.props.fotoProduto} alt={"Imagem do Produto"}></PhotoProduto>
-          <DivNomeEValores>
+        <PhotoProduto src={this.props.fotoProduto} alt={"Imagem do Produto"}></PhotoProduto>
+        <DivNomeEValores>
           <h2>{this.props.nomeProduto}</h2>
           <p>{this.props.descrição}</p>
           <h4>R${this.props.preçoProduto},00</h4>
           <BotãoCarrinho name="Carrinho">Adicionar ao Carrinho <span>🛒</span></BotãoCarrinho>
-          </DivNomeEValores>
-         </DivCardProdutos>
+        </DivNomeEValores>
+      </DivCardProdutos>
     )
   }
 }
