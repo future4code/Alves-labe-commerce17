@@ -1,6 +1,6 @@
 Sejam bem vindos ao Labe-commerce, esse repositório contém um esqueleto de app React e um .gitignore.
 
-Alves LabE-Commerce 17
+### Alves LabE-Commerce 17
 
 ![astro-devstore](https://user-images.githubusercontent.com/103120880/174490365-f71c4f39-1a43-443f-9fc7-3b9873a9d7b4.png)
 
@@ -27,11 +27,11 @@ O usuário acessará o link de surge informado na descrição deste projeto e co
 a necessidade de rodar o projeto em sua máquina. Dentro do mesmo, as funcionalidades supracitadas informam perfeitamente a
 melhor maneira de acessar e utilizar o projeto.
 
-### Ajuda:
+### Ajuda
 
 A priori, o projeto possui três canais de ajuda que são as plataformas Slack dos desenvolvedores. 
 
-### Autoria:
+### Autoria
 
 Douglas Henrique Ferreira Barbosa
 
