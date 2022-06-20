@@ -37,20 +37,45 @@ const GridLayout = styled.div`
   }
   overflow-x: hidden;
 
-  @media (max-width: 1200px) {
+  @media (max-width:1200px) {
     height: 220vh;
   }
 
-  @media (max-width: 1200px) {
+  @media (max-width:1200px) {
     grid-template-columns: repeat(1, 1fr);
     height: 400vh;
   }
 
-  @media (max-width: 557px) {
+  @media (max-width:1080px) {
+    height: 300vh;
+  }
+  @media (max-width:660px) {
+    height: 450vh;
+  }
+
+  @media (max-width:700px) {
+    height: 560vh;
+  }
+
+  @media (max-width:557px) {
     display: inline-block;
     grid-template-rows: 1fr 9fr 5fr 1fr;
     grid-template-columns: 1fr 5fr 1fr;
-    height: 420vh;
+    height: 700vh;
+  }
+
+  @media (max-width:507px) {
+    display: inline-block;
+    grid-template-rows: 1fr 9fr 5fr 1fr;
+    grid-template-columns: 1fr 5fr 1fr;
+    height: 600vh;
+  }
+
+  @media (max-width:405px) {
+    display: inline-block;
+    grid-template-rows: 1fr 9fr 5fr 1fr;
+    grid-template-columns: 1fr 5fr 1fr;
+    height: 500vh;
   }
 `;
 
@@ -59,6 +84,10 @@ const Header = styled.header`
   background-color: #7d5fff;
   display: grid;
   justify-items: center;
+  @media (max-width:385px) {
+    height: 20vh;
+  }
+
   > img {
     height: 7vh;
     margin-top: 15px;
@@ -70,14 +99,22 @@ const Header = styled.header`
       height: 4.5vh;
     }
   }
+  @media (max-width:385px) {
+    img{
+    height: 5vh;}
+  }
 `;
 
 const MiniAvisoPromocional = styled.div`
-  height: 6vh;
+  height: 5vh;
   display: flex;
   justify-content: center;
   width: 100vw;
   background-color: white;
+  @media (max-width:385px) {
+    height: 9vh;
+  }
+
   P {
     color: black;
     font-weight: 500;
@@ -113,6 +150,9 @@ const MenuFiltros = styled.aside`
   padding: 30px;
   background-color: #1b1464;
   text-align: center;
+  @media (max-width:557px) {
+  padding: 2px
+  }
 `;
 const H1Sessão = styled.h1`
   margin: 0px;
@@ -128,6 +168,7 @@ const LabelStyled = styled.label`
   align-items: flex-start;
   margin-bottom: 8px;
   justify-content: flex-start;
+  text-align: center;
 `;
 const LabelStyled2 = styled.label`
   display: flex;
@@ -180,8 +221,8 @@ const BotãoCarrinho = styled.button`
   justify-content: center;
   align-items: center;
   margin-top: 10px;
-  width: 60%;
-  height: 70px;
+  width: 50%;
+  height: 50px;
   text-align: center;
   background-color: #7d5fff;
   border: solid 1px #74747480;
@@ -193,19 +234,23 @@ const BotãoCarrinho = styled.button`
   background-position: center;
   margin: 0 auto;
 
+  @media (max-width:375px) {
+    height: 40px
+  }
+
   @media (max-width: 1407px) {
     max-width: 83%;
-    height: 70px;
+    height: 50px;
   }
 
   @media (max-width: 800px) {
     max-width: 100%;
-    height: 80px;
+    height: 60px;
   }
 
   @media (max-width: 700px) {
-    max-width: 120%;
-    height: 80px;
+    max-width: 100%;
+    height: 50px;
   }
   :hover {
     background: #74747480 radial-gradient(circle, transparent 1%, #192c53 1%)
@@ -214,18 +259,18 @@ const BotãoCarrinho = styled.button`
   }
 
   @media (max-width: 1407px) {
-    max-width: 83%;
+    max-width: 53%;
     height: 70px;
   }
 
-  @media (max-width: 800px) {
-    max-width: 100%;
-    height: 80px;
+  @media (max-width:557px) {
+    max-width: 35%;
+    height: 40px;
   }
 
-  @media (max-width: 700px) {
-    max-width: 100px;
-    height: 80px;
+  @media (max-width:375px) {
+    max-width: 35%;
+    height: 40px;
   }
 `;
 
@@ -290,23 +335,23 @@ export default class App extends Component {
     inputBuscaPorNome: "",
     valorMinimo: "",
     valorMaximo: "",
-    ParametroOrdenação: "",
     itensNoCarrinho: [],
   };
+
   onChangeInputBuscaPorNome = (event) => {
     this.setState({ inputBuscaPorNome: event.target.value });
   };
   onChangeInputValorMinimo = (event) => {
     this.setState({ valorMinimo: event.target.value });
-    console.log(this.state.valorMinimo);
   };
   onChangeInputValorMaximo = (event) => {
     this.setState({ valorMaximo: event.target.value });
-    console.log(this.state.valorMaximo);
   };
   onChangeParametroOrdenação = (event) => {
     this.setState({ ParametroOrdenação: event.target.value });
   };
+
+  // itemId é o ID do item sendo clicado e item.id o item que está no carrinho
 
   adicionarItem = (itemId) => {
     const itemNoCarrinho = this.state.itensNoCarrinho.find(
@@ -533,6 +578,7 @@ export default class App extends Component {
           <br />
           <br />
           <p>AstroDev Store © - 2022</p>
+          <br />
         </Footer>
       </GridLayout>
     );
