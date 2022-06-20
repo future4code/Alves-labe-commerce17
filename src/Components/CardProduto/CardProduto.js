@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import React, { Component } from 'react'
+
 const DivCardProdutos = styled.div`
 display: flex;
 flex-direction: column;
@@ -60,6 +61,18 @@ const BotãoCarrinho = styled.button`
   font-weight: 500;
   transition: background 0.8s;
   background-position: center;
+  @media (max-width:375px) {
+    height: 5vh
+  }
+  @media (max-width:1140px) {
+    width: 60%;
+    height: 9vh;
+  }
+
+  @media (max-width:790px) {
+    width: 70%;
+    height: 9vh;
+  }
   :hover {
   background: #1b1464 radial-gradient(circle, transparent 1%,#192C53 1%) center/15000%;
   color: #FFFFFF;
