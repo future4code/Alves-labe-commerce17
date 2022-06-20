@@ -29,7 +29,7 @@ melhor maneira de acessar e utilizar o projeto.
 
 ### Tecnologias Utilizadas
 
-- React, JavaScript, HTML e CSS
+- React, JavaScript, Styled Components e GIT.
 
 ### Autoria
 
