@@ -27,6 +27,10 @@ O usuário acessará o link de surge informado na descrição deste projeto e co
 a necessidade de rodar o projeto em sua máquina. Dentro do mesmo, as funcionalidades supracitadas informam perfeitamente a
 melhor maneira de acessar e utilizar o projeto.
 
+### Tecnologias Utilizadas
+
+- React, JavaScript, HTML e CSS
+
 ### Autoria
 
 Douglas Henrique Ferreira Barbosa
