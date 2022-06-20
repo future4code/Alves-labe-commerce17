@@ -286,6 +286,15 @@ const DivFiltros = styled.div`
   margin: 0 auto;
 `;
 
+const RedesSociais = styled.img`
+transform: scale(1.0);
+transition-duration: 0.5s;
+:hover {
+  transform: scale(1.1);
+  transition-duration: 0.5s;
+}
+`
+
 export default class App extends Component {
   state = {
     ArrayProdutos: [
@@ -566,7 +575,7 @@ export default class App extends Component {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src={Facebook} />
+              <RedesSociais src={Facebook} alt="Facebook" />
             </a>
             ⠀
             <a
@@ -574,7 +583,7 @@ export default class App extends Component {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src={Instagram} />
+              <RedesSociais src={Instagram} alt="Instagram" />
             </a>
             ⠀
             <a
@@ -582,7 +591,7 @@ export default class App extends Component {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src={Twitter} />
+              <RedesSociais src={Twitter} alt="Twitter" />
             </a>
           </DivRedesSociais>
           <br />
