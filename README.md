@@ -1,6 +1,6 @@
-Sejam bem vindos ao Labe-commerce, esse repositório contém um esqueleto de app React e um .gitignore.
+Sejam bem vindos ao LabE-commerce17, esse repositório contém um esqueleto de app React e um .gitignore.
 
-### Alves LabE-Commerce 17
+### AstroDev Store
 
 ![astro-devstore](https://user-images.githubusercontent.com/103120880/174490365-f71c4f39-1a43-443f-9fc7-3b9873a9d7b4.png)
 
@@ -18,8 +18,8 @@ Dentro da página é possível filtrar os valores das camisetas, ou seja, o usu�
 iniciais e finais e assim escolher a camiseta que lhe apetecer o preço. Na página principal, é possível que o usuário visualize 
 com clareza a camiseta, sua estampa, seu valor e a descrição, ao passo que, desejando uma das camisetas, o usuário pode 
 com um clique adicioná-la ao carrinho. Neste carrinho, são alocadas as escolhas do usuário e somadas conforme a quantidade
-desejada pelo mesmo. Isto posto, o projeto entrega ao usuário uma página completa com todas as funcionalidades pertinentes
-à loja virtual.
+desejada pelo mesmo, sendo salva em armazenamento local mesmo após o usuario atualizar a pagina. Isto posto, o projeto entrega 
+ao usuário uma página completa com todas as funcionalidades pertinentes à loja virtual.
 
 ### Utilização
 
@@ -41,10 +41,8 @@ Leonardo José Couto Silva Lopes de Souza
 
 ### Surge
 
-https://first-ice.surge.sh
+https://kindly-sticks.surge.sh
 
 
 ![image](https://user-images.githubusercontent.com/103120880/174490013-be406328-ea97-46af-a7f7-e0a81c49dd3b.png)
 ![image](https://user-images.githubusercontent.com/103120880/174490036-d913e360-3878-410b-b9a3-5f7be168ae3d.png)
-
-
