@@ -351,6 +351,15 @@ export default class App extends Component {
     this.setState({ ParametroOrdenação: event.target.value });
   };
 
+  componentDidUpdate() {
+  };
+
+  componentDidMount() {
+    let listaCarrinho = localStorage.getItem("lista")
+    const carrinhoConvertido = JSON.parse(listaCarrinho)
+    carrinhoConvertido && this.setState({ itensNoCarrinho: carrinhoConvertido })
+  }
+
   // itemId é o ID do item sendo clicado e item.id o item que está no carrinho
 
   adicionarItem = (itemId) => {
@@ -369,6 +378,7 @@ export default class App extends Component {
       });
       this.setState({ itensNoCarrinho: novosItensCarrinho });
       console.log(novosItensCarrinho);
+      localStorage.setItem("lista", JSON.stringify(novosItensCarrinho))
     } else {
       const itemAdicionado = this.state.ArrayProdutos.find(
         (item) => itemId === item.id
@@ -380,6 +390,7 @@ export default class App extends Component {
       ];
       console.log(novosItensCarrinho);
       this.setState({ itensNoCarrinho: novosItensCarrinho });
+      localStorage.setItem("lista", JSON.stringify(novosItensCarrinho))
     }
   };
 
@@ -396,6 +407,7 @@ export default class App extends Component {
       })
       .filter((item) => item.quantidade > 0);
     this.setState({ itensNoCarrinho: novosProdutos });
+    localStorage.setItem("lista", JSON.stringify(novosProdutos))
   };
 
   valorTotal = () => {
