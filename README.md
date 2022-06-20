@@ -41,7 +41,7 @@ Leonardo José Couto Silva Lopes de Souza
 
 ### Surge
 
-romantic-committee.surge.sh
+https://first-ice.surge.sh
 
 
 ![image](https://user-images.githubusercontent.com/103120880/174490013-be406328-ea97-46af-a7f7-e0a81c49dd3b.png)
